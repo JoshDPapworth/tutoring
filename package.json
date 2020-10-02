@@ -2,38 +2,100 @@
   "name": "website-demo",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "typescript": "~3.7.2"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "clean-dist": "rm -rf -d dist",
+    "start": "webpack-dev-server --config=webpack.dev.js",
+    "build": "yarn run clean-dist && webpack -p --config=webpack.prod.js",
+    "docker": "yarn run test && yarn run lint && yarn run clean-dist && webpack -p --config=webpack.prod.js && docker build -t elliotjreed/react-website-template-nginx . --no-cache && docker push elliotjreed/react-website-template-nginx",
+    "lint": "yarn run lint:js && yarn run lint:css",
+    "lint:js": "eslint --ext .ts --ext .js --ext .tsx './src/'",
+    "lint:css": "stylelint './src/**/*.scss' --syntax scss",
+    "test": "jest"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "bulma": "^0.9",
+    "file-loader": "^6.1.0",
+    "history": "^5.0",
+    "react": "^16.13",
+    "react-dom": "^16.13",
+    "react-ga": "^3.1",
+    "react-helmet": "^6.1",
+    "react-localization": "^1.0.15",
+    "react-router-dom": "^5.2",
+    "webpack-pwa-manifest": "^4.2",
+    "workbox-webpack-plugin": "^5.1"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "devDependencies": {
+    "@types/enzyme": "^3.10",
+    "@types/enzyme-adapter-react-16": "^1.0",
+    "@types/jest": "^26.0",
+    "@types/node": "^14.6",
+    "@types/react": "^16.9",
+    "@types/react-dom": "^16.9",
+    "@typescript-eslint/eslint-plugin": "^3.10",
+    "@typescript-eslint/parser": "^3.10",
+    "@types/file-loader": "^4.2.0",
+    "awesome-typescript-loader": "^5.2",
+    "copy-webpack-plugin": "^6.0",
+    "css-loader": "^4.2",
+    "enzyme": "^3.11",
+    "enzyme-adapter-react-16": "^1.15",
+    "eslint": "^7.7",
+    "eslint-config-prettier": "^6.11",
+    "eslint-plugin-prettier": "^3.1",
+    "eslint-plugin-react": "^7.20",
+    "html-webpack-plugin": "^4.3",
+    "jest": "^26.4",
+    "jest-enzyme": "^7.1",
+    "mini-css-extract-plugin": "^0.10",
+    "node-sass": "^4.14",
+    "prettier": "^2.1",
+    "purgecss-webpack-plugin": "^2.3",
+    "sass-loader": "^10.0",
+    "source-map-loader": "^1.0",
+    "style-loader": "^1.2",
+    "stylelint": "^13.6",
+    "stylelint-config-recommended-scss": "^4.2",
+    "stylelint-config-standard": "^20.0",
+    "stylelint-scss": "^3.18",
+    "terser-webpack-plugin": "^4.1",
+    "ts-jest": "^26.3",
+    "typescript": "^3.9",
+    "webpack": "^4.44",
+    "webpack-cli": "^3.3",
+    "webpack-dev-middleware": "^3.7",
+    "webpack-dev-server": "^3.11",
+    "webpack-merge": "^5.1"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/src/stylesMock.ts"
+    },
+    "testMatch": [
+      "<rootDir>/src/**/*.test.tsx"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "setupFilesAfterEnv": [
+      "<rootDir>/node_modules/jest-enzyme/lib/index.js"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/setupJest.ts"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/components/**/*.{ts,tsx}",
+      "!src/**/*.test.{ts,tsx}",
+      "!**/node_modules/**"
+    ],
+    "coverageReporters": [
+      "html",
+      "text"
+    ],
+    "resetModules": true,
+    "restoreMocks": true
   }
 }
