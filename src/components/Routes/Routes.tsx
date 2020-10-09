@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 import { Loading } from "../Loading/Loading";
 import AboutMe from "../AboutMe/AboutMe";
+import Services from "../Services/Services";
 
 const Home = React.lazy((): Promise<any> => import(/* webpackChunkName: "home" */ "../Home/Home"));
 
@@ -16,6 +17,7 @@ function Routes(): Router {
           <Switch>
             <Route exact={true} path="/home" component={Home} />
             <Route exact={true} path="/about-me" component={AboutMe} />
+            <Route exact={true} path="/services" component={Services} />
           </Switch>
         </React.Suspense>
       </Router>

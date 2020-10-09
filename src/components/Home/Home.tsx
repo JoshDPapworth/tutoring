@@ -1,7 +1,7 @@
 import * as React from "react";
 // @ts-ignore
 import Tasha from "../../assets/img/Tasha.png";
-import Card from "../Cards/Card";
+import ButtonCard from "../Cards/ButtonCard";
 
 function Home(): JSX.Element {
   return (
@@ -23,20 +23,20 @@ function Home(): JSX.Element {
       <div className="cards">
         <div className="columns">
           <div className="column is-4 is-offset-2">
-            <Card title="About me..." link="/about-me" />
+            <ButtonCard title="About me..." link="/about-me" />
           </div>
 
           <div className="column is-4">
-            <Card title="Services..." link="/services" />
+            <ButtonCard title="Services..." link="/services" />
           </div>
         </div>
         <div className="columns">
           <div className="column is-4 is-offset-2">
-            <Card title="Reviews..." link="/reviews" />
+            <ButtonCard title="Reviews..." link="/reviews" />
           </div>
 
           <div className="column is-4">
-            <Card title="Contact me..." link="/contact-me" />
+            <ButtonCard title="Contact me..." link="/contact-me" />
           </div>
         </div>
       </div>

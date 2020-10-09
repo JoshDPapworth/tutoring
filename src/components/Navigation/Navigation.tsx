@@ -39,13 +39,13 @@ function Navigation(): JSX.Element {
             <Link to="/about-me" className="navbar-item" onClick={(): void => toggleMenu(false)}>
               About me
             </Link>
-            <Link to="/about-me" className="navbar-item" onClick={(): void => toggleMenu(false)}>
+            <Link to="/services" className="navbar-item" onClick={(): void => toggleMenu(false)}>
               Services
             </Link>
-            <Link to="/" className="navbar-item" onClick={(): void => toggleMenu(false)}>
+            <Link to="/reviews" className="navbar-item" onClick={(): void => toggleMenu(false)}>
               Reviews
             </Link>
-            <Link to="/" className="navbar-item">
+            <Link to="/contact-me" className="navbar-item">
               Contact me
             </Link>
           </div>

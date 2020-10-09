@@ -1,4 +1,9 @@
-@import "~bulma";
+$azure: #50eba8;
+$navbar-item-hover-color: $azure;
+
+.html {
+  background-color: azure;
+}
 
 .App {
   text-align: center;
@@ -19,11 +24,6 @@
   margin-top: 1em;
 }
 
-#root {
-  background-color: azure;
-  height: 100vh;
-}
-
 .header {
   color: #50eba8;
   font-size: 6em;
@@ -34,6 +34,9 @@
   margin-bottom: 0.2em;
 }
 
+.navbar {
+  border-radius: 1em;
+}
 .navbar-menu {
   display: flex;
   flex-direction: row;
@@ -41,9 +44,11 @@
   font-size: 2em;
 }
 
-.navbar-item {
-  border-left: 3px solid #e8e8e8;
+.navbar-item:hover {
+  color: #50eba8;
 }
+
+
 
 .image-container {
   text-align: center;
@@ -87,3 +92,22 @@
 .cards {
   margin-top: 2em;
 }
+
+.Services {
+  .Services-header {
+    margin-top: 0.5em;
+    font-size: 2em;
+  }
+  .title {
+    text-align: center;
+    color: #50eba8;
+    font-size: 4em;
+    font-family: 'Pacifico', cursive;
+  }
+  .card {
+    padding: 1em;
+    margin: 2em;
+    border-radius: 1em;
+  }
+}
+@import "~bulma";

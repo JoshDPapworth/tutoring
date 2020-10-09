@@ -6,7 +6,7 @@ export interface Props {
   link: string;
 }
 
-function Card(props: Props): JSX.Element {
+function ButtonCard(props: Props): JSX.Element {
   return (
     <Link to={props.link}>
       <div className="card test">
@@ -18,4 +18,4 @@ function Card(props: Props): JSX.Element {
   );
 }
 
-export default Card;
+export default ButtonCard;
