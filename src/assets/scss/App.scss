@@ -110,4 +110,45 @@ $navbar-item-hover-color: $azure;
     border-radius: 1em;
   }
 }
+
+.AboutMe {
+  .About-header {
+    margin-top: 0.5em;
+    font-size: 2em;
+  }
+  .title {
+    text-align: center;
+    color: #50eba8;
+    font-size: 4em;
+    font-family: 'Pacifico', cursive;
+  }
+   .card {
+     padding: 1em;
+     margin: 2em;
+     border-radius: 1em;
+   }
+
+  .image img {
+    margin-left: 1em
+  }
+ }
+
+.Reviews {
+  .Reviews-header {
+    margin-top: 0.5em;
+    font-size: 2em;
+  }
+  .title {
+    text-align: center;
+    color: #50eba8;
+    font-size: 4em;
+    font-family: 'Pacifico', cursive;
+  }
+  .card {
+    margin-top: 2em;
+  }
+  .card-image {
+    padding: 1em;
+  }
+}
 @import "~bulma";

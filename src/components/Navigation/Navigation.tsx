@@ -15,12 +15,6 @@ function Navigation(): JSX.Element {
         </Link>
         <nav className="navbar is-light" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
-            {/*<span className="navbar-logo">*/}
-            {/*  <Link to="/home">*/}
-            {/*    <i className="fas fa-frog fa-lg" />*/}
-            {/*  </Link>*/}
-            {/*</span>*/}
-
             <a
               role="button"
               className={"navbar-burger burger" + (menuActive ? " is-active" : "")}
